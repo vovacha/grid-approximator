@@ -9,6 +9,8 @@ Input:
 Output:
 - a picture with an approximated element
 
+![Alt text](ukraine_grid.jpg?raw=true "Grid approximation example")
+
 ## Usage examples
 ##### Approximate element with unknown grid size and 300 grid pieces
     > python grid_approximator.py --image ukraine.jpg --divide 300
