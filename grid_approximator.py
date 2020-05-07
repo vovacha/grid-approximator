@@ -117,9 +117,10 @@ if __name__ == '__main__':
         step_pixels, divided_by = find_optimal_grid_step(im, divide_by)
         print('_' * 100)
         if divided_by != divide_by:
-            print(f'Element was divided into {divided_by} pieces instead of {divide_by}')
+            print(f'Element was divided into {divided_by} pieces instead of {divide_by} '
+                  f'({step_pixels} pixels grid size)')
         else:
-            print(f'Element was divided into {divided_by} pieces')
+            print(f'Element was divided into {divided_by} pieces ({step_pixels} pixels grid size)')
 
     color = (0, 0, 0, 0)
     im_grid = draw_squares(im, step_pixels, color)

@@ -12,7 +12,7 @@ Output:
 ## Usage examples
 ##### Approximate element with unknown grid size and 300 grid pieces
     > python grid_approximator.py --image ukraine.jpg --divide 300
-    Element was divided into 296 pieces instead of 300
+    Element was divided into 296 pieces instead of 300 (106 pixels grid size)
     New image with approximated element was successfully created: ukraine_grid.jpg
 ##### Approximate element with known grid size equals to 55 pixels
     > python grid_approximator.py --image ukraine.jpg --grid 55
