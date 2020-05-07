@@ -40,7 +40,7 @@ def iterate_squares(im, step):
                 break
 
 
-def draw_squares(im, step, color, width=2):
+def draw_squares(im, step, color, width=3):
     draw = ImageDraw.Draw(im)
     for (w1, w2), (h1, h2) in iterate_squares(im, step):
         draw.line(((w1, h1), (w2, h1)), fill=color, width=width)
