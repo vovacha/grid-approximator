@@ -6,8 +6,8 @@ import numpy
 
 def iterate_squares(im, step):
     black_white_image = im.convert('1')
-    arr = numpy.array(black_white_image)
-    width, height = len(arr[0]), len(arr)
+    matrix = numpy.array(black_white_image)
+    width, height = len(matrix[0]), len(matrix)
 
     width_squares, r = divmod(width, step)
     if r:
@@ -18,26 +18,14 @@ def iterate_squares(im, step):
 
     for w1 in range(width_squares):
         w1 *= step
-        if w1 + step > width:
-            w2 = width
-        else:
-            w2 = w1 + step
+        w2 = width if w1 + step > width else w1 + step
 
         for h1 in range(height_squares):
             h1 *= step
-            if h1 + step > height:
-                h2 = height
-            else:
-                h2 = h1 + step
+            h2 = width if h1 + step > height else h1 + step
 
-            for ww in range(w1, w2):
-                for hh in range(h1, h2):
-                    if not arr[hh][ww]:
-                        yield (w1, w2), (h1, h2)
-                        break
-                else:
-                    continue
-                break
+            if not numpy.all(matrix[h1:h2, w1:w2]):
+                yield (w1, w2), (h1, h2)
 
 
 def draw_squares(im, step, color, width=3):
@@ -114,6 +102,8 @@ if __name__ == '__main__':
     if not divide_by:
         pass
     elif not step_pixels:
+        import time
+        start = time.time()
         step_pixels, divided_by = find_optimal_grid_step(im, divide_by)
         print('_' * 100)
         if divided_by != divide_by:
@@ -121,6 +111,7 @@ if __name__ == '__main__':
                   f'({step_pixels} pixels grid size)')
         else:
             print(f'Element was divided into {divided_by} pieces ({step_pixels} pixels grid size)')
+        print(time.time() - start)
 
     color = (0, 0, 0, 0)
     im_grid = draw_squares(im, step_pixels, color)
