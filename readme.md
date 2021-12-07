@@ -1,13 +1,13 @@
 # Grid Approximator
 
-Approximates contrast element using grid. 
+Devide the contrast element from the picture into equal pieces using grid approximation.
 
 Input:
-- a picture with contrast elements to be approximated
+- a picture with contrast elements to be processd
 - one of two parameters (grid size in pixels or number of grid pieces)
 
 Output:
-- a picture with an approximated element
+- a picture with a grid
 
 ![Alt text](ukraine_grid.jpg?raw=true "Grid approximation example")
 
